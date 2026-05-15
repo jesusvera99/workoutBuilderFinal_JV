@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workout Builder | Home</title>
+  <meta name="description"
+    content="Workout Builder helps runners create a simple weekly training plan and explore workout ideas by type.">
+  <meta name="keywords"
+    content="running plan, workout generator, weekly mileage, VO2 workout, threshold workout, long run">
+  <meta name="author" content="Jesus Vera">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/vendor-modernizr-custom.js"></script>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <h1 class="site-header__title">Workout Builder</h1>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__link nav__link--active" href="index.html" aria-current="page">Home</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main-content" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 class="hero__title" id="hero-title">Build Your Next Running Week</h2>
+      <p class="hero__text">As a runner, help yourself create a simple weekly training plan targetting your mileage
+        goals and workouts!</p>
+      <a class="btn hero__button" href="#generator">Start Building</a>
+    </section>
+
+    <section class="card-section" aria-label="Main project features">
+      <article class="card">
+        <h3 class="card__title">Weekly Plans</h3>
+        <p class="card__text">Create a balanced running week with easy runs, workouts, and a long run to finish.</p>
+      </article>
+      <article class="card">
+        <h3 class="card__title">Workout Ideas</h3>
+        <p class="card__text">Choose from tempo, threshold, long run, and VO2 focused sessions.</p>
+      </article>
+      <article class="card">
+        <h3 class="card__title">Simple Building</h3>
+        <p class="card__text">Keep your weekly mileage goals clear, organized, and easy to follow.</p>
+      </article>
+    </section>
+
+    <section class="builder" id="generator" aria-labelledby="builder-title">
+      <div class="builder__intro">
+        <h2 class="builder__title" id="builder-title">Weekly Plan Generator</h2>
+        <p class="builder__text">Generate your own specially curated workout below</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-5">
+          <form class="builder__form" aria-label="Training plan options">
+            <label class="builder__label" for="mileage">Weekly Mileage Goal</label>
+            <select class="form-select builder__input" id="mileage" name="mileage">
+              <option>25-35 miles</option>
+              <option>35-45 miles</option>
+              <option>45-60 miles</option>
+            </select>
+
+            <label class="builder__label" for="goal">Training Goal</label>
+            <select class="form-select builder__input" id="goal" name="goal">
+              <option>General Fitness</option>
+              <option>5K Speed</option>
+              <option>Marathon Build</option>
+            </select>
+
+            <label class="builder__label" for="workoutType">Workout Focus</label>
+            <select class="form-select builder__input" id="workoutType" name="workoutType">
+              <option>VO2 Max</option>
+              <option>Threshold</option>
+              <option>Long Run</option>
+              <option>Easy / Recovery</option>
+            </select>
+
+            <button class="btn builder__button" type="button" id="generateWorkout">Generate Sample Workout</button>
+          </form>
+        </div>
+
+        <div class="col-md-7">
+          <div class="result-card" role="status" aria-live="polite">
+            <h3 class="result-card__title">Generated Workout Idea</h3>
+            <p class="result-card__text" id="workoutResult">Select a workout focus and tap the button to preview a
+              workout idea.</p>
+          </div>
+
+          <div class="week-plan" aria-label="Sample weekly plan">
+            <h3 class="week-plan__title">Sample Weekly Plan</h3>
+            <ul class="week-plan__list">
+              <li class="week-plan__item"><strong>Monday:</strong> Easy Run - 5 miles</li>
+              <li class="week-plan__item"><strong>Tuesday:</strong> VO2 Workout - 6 x 800m</li>
+              <li class="week-plan__item"><strong>Wednesday:</strong> Recovery Run - 4 miles</li>
+              <li class="week-plan__item"><strong>Thursday:</strong> Threshold Run - 20 minute tempo</li>
+              <li class="week-plan__item"><strong>Friday:</strong> Rest or mobility</li>
+              <li class="week-plan__item"><strong>Saturday:</strong> Long Run - 10 miles</li>
+              <li class="week-plan__item"><strong>Sunday:</strong> Easy Run - 4 miles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-accordion" aria-labelledby="accordion-title">
+      <h2 class="info-accordion__title" id="accordion-title">Training Focus Guide</h2>
+      <div id="focusAccordion">
+        <h3>VO2 Max</h3>
+        <div>
+          <p>Shorter, faster workouts that help improve speed and top-end running strength.</p>
+        </div>
+        <h3>Threshold</h3>
+        <div>
+          <p>Controlled efforts that help runners hold a strong pace for longer periods of time.</p>
+        </div>
+        <h3>Long Run</h3>
+        <div>
+          <p>The longer weekly run that builds endurance and supports the rest of the training plan.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="site-footer__text">&copy;2026 Jesus Vera | Workout Builder</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

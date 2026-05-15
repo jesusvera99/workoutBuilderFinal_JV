@@ -1,0 +1,354 @@
+@font-face {
+  font-family: 'Garet';
+  src: url('../fonts/Garet-Book.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+// Variables
+$primary-color: #8956b2;
+$secondary-color: #35383f;
+$accent-color: #f4f0fa;
+$text-color: #333333;
+$light-color: #ffffff;
+$muted-color: #6c6c6c;
+$border-color: #cccccc;
+$main-font: 'Garet', sans-serif;
+$spacing-small: 0.75rem;
+$spacing-medium: 1.5rem;
+$spacing-large: 3rem;
+$border-radius: 12px;
+$max-width: 1000px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-style {
+  display: inline-block;
+  padding: $spacing-small $spacing-medium;
+  background-color: $primary-color;
+  color: $light-color;
+  text-decoration: none;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: darken($primary-color, 10%);
+    color: $light-color;
+  }
+}
+
+@mixin card-style {
+  background-color: $light-color;
+  padding: $spacing-medium;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+// General
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $main-font;
+  color: $text-color;
+  background-color: $accent-color;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+  padding: $spacing-large $spacing-medium;
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  color: $secondary-color;
+  margin-bottom: $spacing-small;
+}
+
+p {
+  margin-bottom: $spacing-medium;
+}
+
+// Navigation
+.site-header {
+  background-color: $light-color;
+  padding: $spacing-medium;
+  border-bottom: 2px solid lighten($primary-color, 30%);
+  text-align: center;
+
+  &__title {
+    color: $primary-color;
+    margin-bottom: $spacing-small;
+  }
+}
+
+.nav {
+  @include flex-center;
+  gap: $spacing-medium;
+
+  &__link {
+    color: $secondary-color;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover,
+    &:focus,
+    &--active {
+      color: $primary-color;
+    }
+  }
+}
+
+// Home Page
+.hero {
+  text-align: center;
+  padding: $spacing-large $spacing-medium;
+
+  &__title {
+    font-size: 2.5rem;
+  }
+
+  &__text {
+    max-width: 650px;
+    margin: 0 auto $spacing-medium;
+  }
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-medium;
+  margin-top: $spacing-large;
+}
+
+.card {
+  @include card-style;
+
+  &__title {
+    color: $primary-color;
+  }
+
+  &__text {
+    margin-bottom: 0;
+  }
+}
+
+// Generator Section
+.builder {
+  margin-top: $spacing-large;
+
+  &__intro {
+    text-align: center;
+    margin-bottom: $spacing-medium;
+  }
+
+  &__text {
+    max-width: 720px;
+    margin: 0 auto $spacing-medium;
+  }
+
+  &__form {
+    @include card-style;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-small;
+    height: 100%;
+  }
+
+  &__label {
+    font-weight: bold;
+    color: $secondary-color;
+  }
+
+  &__input {
+    border-radius: $border-radius;
+  }
+
+  &__button {
+    margin-top: $spacing-small;
+  }
+}
+
+.result-card,
+.week-plan {
+  @include card-style;
+}
+
+.result-card {
+  margin-bottom: $spacing-medium;
+
+  &__title {
+    color: $primary-color;
+  }
+
+  &__text {
+    margin-bottom: 0;
+  }
+}
+
+.week-plan {
+  &__title {
+    color: $primary-color;
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid lighten($border-color, 10%);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.info-accordion {
+  margin-top: $spacing-large;
+
+  &__title {
+    text-align: center;
+  }
+}
+
+// About Page
+.page-intro {
+  text-align: center;
+  margin-bottom: $spacing-large;
+
+  &__text {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.content-box {
+  @include card-style;
+
+  &__title {
+    margin-top: $spacing-medium;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: $spacing-medium;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Contact Page
+.form-section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  @include card-style;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-small;
+
+  &__label {
+    font-weight: bold;
+    color: $secondary-color;
+  }
+
+  &__input {
+    padding: $spacing-small;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-family: $main-font;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  &__button {
+    margin-top: $spacing-small;
+  }
+}
+
+.btn {
+  @include button-style;
+}
+
+// Footer Style
+.site-footer {
+  text-align: center;
+  background-color: $secondary-color;
+  color: $light-color;
+  padding: $spacing-medium;
+  margin-top: auto;
+
+  &__text {
+    margin-bottom: 0;
+  }
+}
+
+.ui-accordion .ui-accordion-header {
+  background-color: $light-color;
+  color: $secondary-color;
+  border-color: lighten($primary-color, 30%);
+  border-radius: $border-radius;
+  font-family: $main-font;
+}
+
+.ui-accordion .ui-accordion-content {
+  border-color: lighten($primary-color, 30%);
+  border-radius: 0 0 $border-radius $border-radius;
+}
+
+// Responsive Styling
+@media screen and (max-width: 768px) {
+  .card-section {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: $spacing-small;
+  }
+
+  .hero {
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
